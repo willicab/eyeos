@@ -68,8 +68,8 @@ class LoggerReflectionUtils {
 	 */
 	 // TODO: check, if this is really useful
 	public function setProperties($properties, $prefix) {
-		$len = strlen($prefix);
-		while(list($key,) = each($properties)) {
+                $len = strlen($prefix);
+                foreach ($properties as $key => $dummy) {
 			if(strpos($key, $prefix) === 0) {
 				if(strpos($key, '.', ($len + 1)) > 0) {
 					continue;

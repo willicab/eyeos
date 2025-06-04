@@ -271,8 +271,8 @@ abstract class UploadApplication extends EyeosApplicationExecutable {
                         throw new EyeFileNotFoundException('This file cannot be uploaded (file type banned)');
 					}
 					/*
-					if ( '?' == $filename{0} ) {
-						$filename{0} = "_";
+                                        if ( '?' == $filename[0] ) {
+                                                $filename[0] = "_";
 					}
 					*/
                     $destFile = FSI::getFile($destPath . '/' . $filename);
