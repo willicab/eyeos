@@ -149,7 +149,7 @@ class MetaManager extends Kernel implements IMetaDataManager {
 		);
 	}
 
-	public static function getInstance() {
+	public static function getInstance($class = null) {
 		if (self::$Instance === null) {
 			self::$Instance = new MetaManager();
 		}
@@ -309,7 +309,7 @@ class MetaManagerUMListener extends AbstractUMAdapter {
 
 	protected function __construct() {}
 
-	public static function getInstance() {
+	public static function getInstance($class = null) {
 		if ( self::$Instance === null) {
 			self::$Instance = new MetaManagerUMListener();
 		}

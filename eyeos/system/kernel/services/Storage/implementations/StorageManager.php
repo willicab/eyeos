@@ -46,8 +46,8 @@ final class StorageManager extends Kernel {
 	 * 
 	 * @return StorageManager
 	 */
-	public static function getInstance() {
-		return parent::getInstance(__CLASS__);
+	public static function getInstance($class = null) {
+		return parent::getInstance($class ?? __CLASS__);
 	}
 	
 	/**

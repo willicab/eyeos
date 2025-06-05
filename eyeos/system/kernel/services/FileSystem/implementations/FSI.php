@@ -211,12 +211,12 @@ class EyeosGlobalFileEventsDispatcher implements IFileListener {
 	/**
 	 * @return EyeosGlobalFileEventsDispatcher
 	 */
-	public static function getInstance() {
-		if (self::$Instance === null) {
-			self::$Instance = new EyeosGlobalFileEventsDispatcher();
-		}
-		return self::$Instance;
-	}
+       public static function getInstance($class = null) {
+               if (self::$Instance === null) {
+                       self::$Instance = new EyeosGlobalFileEventsDispatcher();
+               }
+               return self::$Instance;
+       }
 	
 	public function groupChanged(FileEvent $e) {
 		foreach($this->listeners as $listener) {

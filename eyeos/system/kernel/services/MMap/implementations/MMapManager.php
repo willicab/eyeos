@@ -98,9 +98,9 @@ class MMapManager extends Kernel implements IMMap {
 		return self::$CurrentResponse;
 	}
 	
-	public static function getInstance() {
+	public static function getInstance($class = null) {
 		self::$Logger = Logger::getLogger('system.services.MMap.MMapManager');
-		return parent::getInstance(__CLASS__);
+		return parent::getInstance($class ?? __CLASS__);
 	}
 
         /*

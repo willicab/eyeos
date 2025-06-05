@@ -16,7 +16,7 @@
 * You should have received a copy of the GNU Affero General Public License
 * version 3 along with this program in the file "LICENSE".  If not, see 
 * <http://www.gnu.org/licenses/agpl-3.0.txt>.
-* 
+*
 * See www.eyeos.org for more details. All requests should be sent to licensing@eyeos.org
 * 
 * The interactive user interfaces in modified source and object code versions
@@ -27,8 +27,11 @@
 * these Appropriate Legal Notices must retain the display of the "Powered by
 * eyeos" logo and retain the original copyright notice. If the display of the 
 * logo is not reasonably feasible for technical reasons, the Appropriate Legal Notices
-* must display the words "Powered by eyeos" and retain the original copyright notice. 
+* must display the words "Powered by eyeos" and retain the original copyright notice.
 */
+
+// Ensure application descriptor classes are available before defining this service
+require_once FRAMEWORK_APPLICATIONS_PATH . '/interfaces.php';
 
 /**
  * 
@@ -38,9 +41,9 @@
 class MMapGetApp extends Kernel implements IMMap {
 	private static $Logger = null;
 	
-	public static function getInstance() {
+	public static function getInstance($class = null) {
 		self::$Logger = Logger::getLogger('system.services.MMap.MMapGetApp');
-		return parent::getInstance(__CLASS__);
+		return parent::getInstance($class ?? __CLASS__);
 	}
 	 
 	public function checkRequest(MMapRequest $request) {
@@ -379,7 +382,7 @@ class AppMobileExecutionContext extends AppExecutionContext {
         }
     }
 
-    public function setApplicationDescriptor(EyeMobileApplicationDescriptor $appDesc) {
+    public function setApplicationDescriptor(EyeosApplicationDescriptor $appDesc) {
         $this->applicationDescriptor = $appDesc;
     }
 }

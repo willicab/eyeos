@@ -30,7 +30,7 @@
 * must display the words "Powered by eyeos" and retain the original copyright notice. 
 */
 
-require FRAMEWORK_APPLICATIONS_PATH . '/interfaces.php';
+require_once FRAMEWORK_APPLICATIONS_PATH . '/interfaces.php';
 
 define('FRAMEWORK_APPLICATION_EXECUTABLES_DIR', 'Executables');
 define('FRAMEWORK_APPLICATION_EXECUTABLES_PATH', FRAMEWORK_APPLICATIONS_PATH . '/' . FRAMEWORK_APPLICATION_EXECUTABLES_DIR);

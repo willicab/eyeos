@@ -37,9 +37,9 @@
 class MMapMobileGetApp extends Kernel implements IMMap {
 	private static $Logger = null;
 
-	public static function getInstance() {
+	public static function getInstance($class = null) {
 		self::$Logger = Logger::getLogger('system.services.MMap.MMapMobileGetApp');
-		return parent::getInstance(__CLASS__);
+		return parent::getInstance($class ?? __CLASS__);
 	}
 
 	public function checkRequest(MMapRequest $request) {
