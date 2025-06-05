@@ -44,7 +44,7 @@ class TokenType implements ITokens {
     // this token is valid if it has at least one parameter.
         if (count ($parameters) < 1) {
             $this->isValid = false;
-            break;
+            return;
         }
         $this->isValid = true;
     }

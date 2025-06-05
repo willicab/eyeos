@@ -36,8 +36,8 @@
  * @subpackage Data
  */
 class DataManager extends Kernel {
-	public static function getInstance() {
-		return parent::getInstance(DEFAULT_DATAMANAGER);
-	}
+       public static function getInstance($class = DEFAULT_DATAMANAGER) {
+               return parent::getInstance($class);
+       }
 }
 ?>

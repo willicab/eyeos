@@ -95,10 +95,13 @@ class LoggerAppenderFile extends LoggerAppender {
 	public function close() {
 		if($this->closed != true) {
 			if($this->fp and $this->layout !== null) {
-				if(flock($this->fp, LOCK_EX)) {
-					fwrite($this->fp, $this->layout->getFooter());
-					flock($this->fp, LOCK_UN);
-				}
+                                if(flock($this->fp, LOCK_EX)) {
+                                        $footer = (string) $this->layout->getFooter();
+                                        if ($footer !== '') {
+                                                fwrite($this->fp, $footer);
+                                        }
+                                        flock($this->fp, LOCK_UN);
+                                }
 				fclose($this->fp);
 			}
 			$this->closed = true;

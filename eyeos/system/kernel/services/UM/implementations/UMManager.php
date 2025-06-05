@@ -367,7 +367,7 @@ class UMManager extends Kernel implements IUM, IPrincipalsManager, IObservableUM
 		return SERVICE_UM_GROUP_CLASSNAME;
 	}
 
-	public static function getInstance() {
+	public static function getInstance($class = null) {
 		if (self::$Instance === null) {
 			$className = __CLASS__;
 			self::$Instance = new $className;

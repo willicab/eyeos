@@ -75,7 +75,7 @@ class GenericDAO implements IStorageHandler, ISQLHandler, ITransactionHandler {
 
 	public function __construct(array $params = null) {
 		$this->connectionString = $params['connectionString'];
-		$this->username = $params['username'];
+                $this->userName = $params['username'];
 		$this->password = $params['password'];
 		$this->prefix = isset($params['prefix']) ? $params['prefix'] : '';
 	}
@@ -194,7 +194,7 @@ class GenericDAO implements IStorageHandler, ISQLHandler, ITransactionHandler {
 		try {
 			if ($this->dbh == null) {
 
-				$this->dbh = new PDO($this->connectionString, $this->username, $this->password);
+                                $this->dbh = new PDO($this->connectionString, $this->userName, $this->password);
 				$this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->dbh->query("SET NAMES 'utf8'");
 			}

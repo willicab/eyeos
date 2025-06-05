@@ -36,10 +36,10 @@
  * @subpackage MMap
  */
 class MMapMobileScreen extends Kernel implements IMMap {
-	private static $scripts = null;
-	public static function getInstance() {
-		return parent::getInstance(__CLASS__);
-	}
+        private static $scripts = null;
+        public static function getInstance($class = null) {
+                return parent::getInstance($class ?? __CLASS__);
+        }
 
 	protected function __construct() {
 		self::$scripts = array(
