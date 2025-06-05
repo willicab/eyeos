@@ -41,13 +41,16 @@ abstract class Kernel {
 	
 	protected function __construct() {}
         
-    public static function getInstance($class) {   
-		if (!isset(self::$Instances[$class])) {
-			$object = new $class;
-			self::$Instances[$class] = $object;
-		}
-		return self::$Instances[$class];
-	}
+   public static function getInstance($class = null) {
+               if ($class === null) {
+                       $class = static::class;
+               }
+               if (!isset(self::$Instances[$class])) {
+                       $object = new $class;
+                       self::$Instances[$class] = $object;
+               }
+               return self::$Instances[$class];
+       }
 	
 	final protected function __clone() {}
 	

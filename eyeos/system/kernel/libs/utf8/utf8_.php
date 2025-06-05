@@ -35,11 +35,12 @@ if ( !defined('UTF8') ) {
 * encoding
 */
 if ( extension_loaded('mbstring')) {
-    if ( ini_get('mbstring.func_overload') & MB_OVERLOAD_STRING ) {
+    $overload = ini_get('mbstring.func_overload');
+    if ( $overload && defined('MB_OVERLOAD_STRING') && ($overload & MB_OVERLOAD_STRING) ) {
         trigger_error('String functions are overloaded by mbstring',E_USER_ERROR);
     }
     mb_internal_encoding('UTF-8');
-	mb_http_output('UTF-8'); // eyeos
+    mb_http_output('UTF-8'); // eyeos
 }
 
 /**

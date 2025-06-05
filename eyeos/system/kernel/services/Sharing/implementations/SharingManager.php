@@ -361,7 +361,7 @@ class SharingManager extends Kernel implements ISharingManager {
 		return self::$ConfigurationFiles[$filename];
 	}
 	
-	public static function getInstance() {
+	public static function getInstance($class = null) {
 		if (!self::$IsManagerLoaded) {
 			self::$Logger = Logger::getLogger('system.services.Sharing.SharingManager');
 			require SERVICE_SHARING_SHARINGMANAGERS_MANAGERS_PATH . '/' . SERVICE_SHARING_MANAGERCLASSNAME . '.php';
